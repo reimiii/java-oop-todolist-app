@@ -28,8 +28,34 @@ public class Main {
     }
 
     // add todo ke list
-    public static void addTodoList() {
+    public static void addTodoList(String todo) {
+        // check data full?
+        var isFull = true;
+        for (var i = 0; i < model.length; i++){
+            if (model[i] == null) {
+                // model still not full?
+                isFull = false;
+                break;
+            }
+        }
 
+        // if full resize 2*
+        if (isFull){
+            var temp = model;
+            model = new String[model.length * 2];
+
+            for (var i = 0; i < temp.length; i++) {
+                model[i] = temp[i];
+            }
+        }
+
+        // add to position index == null
+        for (var i = 0; i < model.length; i++) {
+            if (model[i] == null) {
+                model[i] = todo;
+                break;
+            }
+        }
     }
 
     // remove todo from list
