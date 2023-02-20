@@ -3,7 +3,7 @@ public class Main {
     public static String[] model = new String[10];
 
     public static void main(String[] args) {
-        testShowTodoList();
+        testAddTodoList();
     }
 
     // show todo list
@@ -39,7 +39,7 @@ public class Main {
             }
         }
 
-        // if full resize 2*
+        // if full is true? then index length array resize 2*
         if (isFull){
             var temp = model;
             model = new String[model.length * 2];
@@ -56,6 +56,15 @@ public class Main {
                 break;
             }
         }
+    }
+
+    // test for add todo to list
+    public static void testAddTodoList(){
+        for (var i = 0; i < 25; i++){
+            addTodoList("test tode ke. " + i);
+        }
+
+        showTodoList();
     }
 
     // remove todo from list
