@@ -3,7 +3,7 @@ public class Main {
     public static String[] model = new String[10];
 
     public static void main(String[] args) {
-
+        testShowTodoList();
     }
 
     // show todo list
@@ -14,10 +14,7 @@ public class Main {
 
             if (todo != null) {
                 System.out.println(no + ". " + todo);
-            } else {
-                System.out.println("isNull?: " + no + ". " + todo);
             }
-
         }
     }
 
@@ -78,7 +75,7 @@ public class Main {
             return false;
         } else {
             for (var i = (number - 1); i < model.length; i++) {
-                // hmmm misal panjang nya 10 - 1 = 9, maka index ke 9 = null
+                // hmmm misal panjang nya 10 - 1 = 9, maka index ke 9 = null index ke 9 = nullindex ke 9 = nullindex ke 9 = nullindex ke 9 = null
                 // jika i itu 10 - 1 = 9, panjang array 10 - 1 = 9 maka
                 // model[9] = null, okay make sense, ngerti ngerti!
                 if (i == (model.length - 1)) {
