@@ -3,8 +3,7 @@ public class Main {
     public static String[] model = new String[10];
 
     public static void main(String[] args) {
-        System.out.println(model.length);
-        testRemoveTodoList();
+
     }
 
     // show todo list
@@ -15,6 +14,8 @@ public class Main {
 
             if (todo != null) {
                 System.out.println(no + ". " + todo);
+            } else {
+                System.out.println("isNull?: " + no + ". " + todo);
             }
 
         }
