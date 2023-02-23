@@ -177,7 +177,7 @@ public class Main {
     }
 
     public static void testViewAddTodoList() {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 3; i++) {
             addTodoList("Kegiatan ke-" + (i + 1));
         }
 
@@ -188,5 +188,18 @@ public class Main {
 
     // view for remove todo from list
     public static void viewRemoveTodoList() {
+        System.out.println("MENGHAPUS TODO");
+
+        var number = input("Nomor yg di hapus (x = quit)");
+
+        if (number.equals("x")) {
+            viewShowTodoList();
+        } else {
+            boolean success = removeTodoList(Integer.valueOf(number));
+            if (!success) {
+                System.out.println("Delete fail todo num: " + number);
+            }
+        }
+
     }
 }
