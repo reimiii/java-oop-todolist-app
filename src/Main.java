@@ -1,13 +1,18 @@
+import java.util.Scanner;
+
 public class Main {
 
     public static String[] model = new String[10];
 
+    public static java.util.Scanner scanner = new java.util.Scanner(System.in);
+
     public static void main(String[] args) {
-        testShowTodoList();
+        testViewAddTodoList();
     }
 
     // show todo list
     public static void showTodoList() {
+        System.out.println("TODO-LIST");
         for (var i = 0; i < model.length; i++) {
             var todo = model[i];
             var no = i + 1;
@@ -113,18 +118,75 @@ public class Main {
         showTodoList();
     }
 
+    public static String input(String info) {
+        System.out.print(info + " : ");
+        String data = scanner.nextLine();
+        return data;
+    }
+
+    public static void testInput() {
+        var name = input("Nama");
+        System.out.println("hii " + name);
+
+        var channel = input("Channel");
+        System.out.println(channel);
+    }
+
     // view todo list
     public static void viewShowTodoList() {
+        while (true) {
+            showTodoList();
 
+            System.out.println("Menu");
+            System.out.println("1. Tambah");
+            System.out.println("2. Hapus");
+            System.out.println("x. Keluar");
+
+            var input = input("Pilih");
+            if (input.equals("1")) {
+                viewAddTodoList();
+            } else if (input.equals("2")) {
+                viewRemoveTodoList();
+            } else if (input.equals("x")) {
+                break;
+            } else {
+                System.out.println("Not valid input");
+            }
+        }
+    }
+
+    public static void testViewShowTodoList() {
+        addTodoList("Satu");
+        addTodoList("Dua");
+        addTodoList("Tiga");
+        addTodoList("Empat");
+        addTodoList("Lima");
+        viewShowTodoList();
     }
 
     // view for add todo list
     public static void viewAddTodoList() {
+        System.out.println("MENAMBAH TODO");
+        var todo = input("Todo (x = quit)");
 
+        if (todo.equals("x")) {
+            viewShowTodoList();
+        } else {
+            addTodoList(todo);
+        }
+    }
+
+    public static void testViewAddTodoList() {
+        for (int i = 0; i < 10; i++) {
+            addTodoList("Kegiatan ke-" + (i + 1));
+        }
+
+        viewAddTodoList();
+
+        showTodoList();
     }
 
     // view for remove todo from list
     public static void viewRemoveTodoList() {
-
     }
 }
