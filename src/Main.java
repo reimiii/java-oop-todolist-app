@@ -7,7 +7,7 @@ public class Main {
     public static java.util.Scanner scanner = new java.util.Scanner(System.in);
 
     public static void main(String[] args) {
-        testViewAddTodoList();
+        viewShowTodoList();
     }
 
     // show todo list
@@ -170,7 +170,7 @@ public class Main {
         var todo = input("Todo (x = quit)");
 
         if (todo.equals("x")) {
-            viewShowTodoList();
+            // batal
         } else {
             addTodoList(todo);
         }
@@ -193,13 +193,24 @@ public class Main {
         var number = input("Nomor yg di hapus (x = quit)");
 
         if (number.equals("x")) {
-            viewShowTodoList();
+            // batal
         } else {
             boolean success = removeTodoList(Integer.valueOf(number));
             if (!success) {
                 System.out.println("Delete fail todo num: " + number);
             }
         }
+    }
 
+    public static void testViewRemoveTodoList() {
+        for (int i = 0; i < 3; i++) {
+            addTodoList("Kerjaan ke-" + (i + 1));
+        }
+
+        showTodoList();
+
+        viewRemoveTodoList();
+
+        showTodoList();
     }
 }
