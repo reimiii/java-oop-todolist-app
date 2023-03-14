@@ -8,10 +8,10 @@ import service.TodoListServiceImpl;
 
 public class TodoListServiceTest {
     public static void main(String[] args) {
-        testShowTodList();
+        testAddTodoList();
     }
 
-    public static void testShowTodList(){
+    public static void testShowTodList() {
 //        TodoListRepository todoListRepository = new TodoListRepositoryImpl();
         TodoListRepositoryImpl todoListRepository = new TodoListRepositoryImpl();
         todoListRepository.data[0] = new TodoList("Malas");
@@ -20,5 +20,16 @@ public class TodoListServiceTest {
 
         TodoListService todoListService = new TodoListServiceImpl(todoListRepository);
         todoListService.showTodoList();
+    }
+
+    public static void testAddTodoList() {
+        TodoListRepository repository = new TodoListRepositoryImpl();
+        TodoListService service = new TodoListServiceImpl(repository);
+
+        service.addTodoList("Makan gorengan");
+        service.addTodoList("Makan balabala");
+        service.addTodoList("Makan cau");
+
+        service.showTodoList();
     }
 }

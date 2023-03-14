@@ -16,18 +16,18 @@ public class TodoListServiceImpl implements TodoListService {
 
         System.out.println("TODO-LIST");
         for (var i = 0; i < model.length; i++) {
-            var todo = model[i];
+            var todoList = model[i];
             var no = i + 1;
 
-            if (todo != null) {
-                System.out.println(no + ". " + todo.getTodo());
+            if (todoList != null) {
+                System.out.println(no + ". " + todoList.getTodo());
             }
         }
     }
 
     @Override
     public void addTodoList(String todo) {
-        TodoList todoList = new TodoList();
+        TodoList todoList = new TodoList(todo);
         todoListRepository.add(todoList);
         System.out.println("Success add Todo: " + todo);
     }
