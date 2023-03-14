@@ -2,8 +2,8 @@ package repository;
 
 import entity.TodoList;
 
-public class TodoListRepositoryImpl implements TodoListRepository{
-    private TodoList[] data = new TodoList[10];
+public class TodoListRepositoryImpl implements TodoListRepository {
+    public TodoList[] data = new TodoList[10];
 
     @Override
     public TodoList[] getAll() {
