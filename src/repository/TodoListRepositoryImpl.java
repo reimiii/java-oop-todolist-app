@@ -49,7 +49,24 @@ public class TodoListRepositoryImpl implements TodoListRepository {
     }
 
     @Override
-    public void remove(Integer number) {
-
+    public boolean remove(Integer number) {
+        if ((number - 1) >= data.length) {
+            return false;
+        } else if (data[number - 1] == null) {
+            return false;
+        } else {
+            for (var i = (number - 1); i < data.length; i++) {
+                // hmmm misal panjang nya 10 - 1 = 9, maka index ke 9 = null index ke 9 = nullindex ke 9 = nullindex ke 9 = nullindex ke 9 = null
+                // jika i itu 10 - 1 = 9, panjang array 10 - 1 = 9 maka
+                // model[9] = null, okay make sense, ngerti ngerti!
+                if (i == (data.length - 1)) {
+                    data[i] = null;
+                } else {
+                    // else nya itu maka si model[8] value nya = model[8 + 1]
+                    data[i] = data[i + 1];
+                }
+            }
+            return true;
+        }
     }
 }
