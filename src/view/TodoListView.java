@@ -42,7 +42,6 @@ public class TodoListView {
         } else {
             service.addTodoList(todo);
         }
-
     }
 
     public void removeTodoList() {
