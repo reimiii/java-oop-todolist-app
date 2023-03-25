@@ -34,6 +34,14 @@ public class TodoListView {
     }
 
     public void addTodoList() {
+        System.out.println("MENAMBAH TODO");
+        var todo = InputUtil.input("Todo (x = quit)");
+
+        if (todo.equals("x")) {
+            // batal
+        } else {
+            service.addTodoList(todo);
+        }
 
     }
 
