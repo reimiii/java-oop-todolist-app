@@ -8,10 +8,10 @@ import view.TodoListView;
 
 public class TodoListViewTest {
     public static void main(String[] args) {
-        testShowTodoList();
+        testAddTodoList();
     }
 
-    public static void testShowTodoList(){
+    public static void testShowTodoList() {
         TodoListRepository repository = new TodoListRepositoryImpl();
         TodoListService service = new TodoListServiceImpl(repository);
         TodoListView view = new TodoListView(service);
@@ -21,5 +21,17 @@ public class TodoListViewTest {
         service.addTodoList("Tidur Sore");
 
         view.showTodoList();
+    }
+
+    public static void testAddTodoList() {
+        TodoListRepository repository = new TodoListRepositoryImpl();
+        TodoListService service = new TodoListServiceImpl(repository);
+        TodoListView view = new TodoListView(service);
+
+        view.addTodoList();
+        service.showTodoList();
+
+        view.addTodoList();
+        service.showTodoList();
     }
 }
