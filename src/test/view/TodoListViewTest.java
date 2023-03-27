@@ -34,4 +34,16 @@ public class TodoListViewTest {
         view.addTodoList();
         service.showTodoList();
     }
+
+    public static void testDeleteTodoList() {
+        TodoListRepository repository = new TodoListRepositoryImpl();
+        TodoListService service = new TodoListServiceImpl(repository);
+        TodoListView view = new TodoListView(service);
+
+        service.addTodoList("Tidur Siang");
+        service.addTodoList("Tidur Malam");
+        service.addTodoList("Tidur Sore");
+
+        view.showTodoList();
+    }
 }

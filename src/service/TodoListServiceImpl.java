@@ -4,7 +4,7 @@ import entity.TodoList;
 import repository.TodoListRepository;
 
 public class TodoListServiceImpl implements TodoListService {
-    private TodoListRepository todoListRepository;
+    private final TodoListRepository todoListRepository;
 
     public TodoListServiceImpl(TodoListRepository todoListRepository) {
         this.todoListRepository = todoListRepository;
